@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724170349) do
+ActiveRecord::Schema.define(version: 20160725152915) do
 
   create_table "analytes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "analyte_name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20160724170349) do
     t.string   "hospital_address"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "limit_analytes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "physician_id"
+    t.integer  "analyte_id"
+    t.string   "limit_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["physician_id", "analyte_id"], name: "index_limit_analytes_on_physician_id_and_analyte_id", using: :btree
   end
 
   create_table "patients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

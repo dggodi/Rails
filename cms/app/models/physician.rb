@@ -6,5 +6,5 @@ class Physician < ApplicationRecord
 	has_many :specimens
 	belongs_to :hospital
 	has_many :patients
-	has_many :limits
+	has_many :limit_analyts
 end

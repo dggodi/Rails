@@ -6,7 +6,7 @@ class CreateLimitAnalytes < ActiveRecord::Migration[5.0]
 	  t.string "limit_type"
       t.timestamps
     end
-	  add_index :limit, ["physician_id", "analyte_id"]
+	  add_index :limit_analytes, ["physician_id", "analyte_id"]
   end
 end
 
